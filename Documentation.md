@@ -51,10 +51,10 @@ Guiding Questions:
       COUNT (*) AS duplicate_count
    FROM
       `olist_inventory.olist_order_items_dataset`
-GROUP BY
-   order_id,
-   order_item_id
-HAVING duplicate_count > 1;
+   GROUP BY
+      order_id,
+      order_item_id
+   HAVING duplicate_count > 1;
 ```
 We see that there is no data to display. However we need to edit and run this for the other two datasets as well.
 
