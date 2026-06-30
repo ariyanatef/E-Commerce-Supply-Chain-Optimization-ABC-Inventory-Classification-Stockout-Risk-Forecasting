@@ -180,6 +180,7 @@ abc_shares AS (
 16. Now we want to implement the Standard 80/15/5 pareto bands onto our inventory analysis. The standard 80/15/5 pareto bands are a three-tier system that will allow us to determine who products or demographics are the most valuable. It will help us focus time and money and put those resources to where it is most valuable.
 
    a) To break it down, we start with the 80% Band (The Vital Few) which makes up 80% of the total value. These items generate the most revenue caused by a few of your products.
+   
    b) The 15% band (The Moderates) are your middle ground resources. These things aren’t anything extraordinary but they provide steady, reliable value to your business. They are mostly worth keeping but won’t contribute to huge results.
 
    c) Lastly we have the 5% band. These items do not provide any value to your business and are just wasting resources. These can be items, tasks, or even target audiences that don’t contribute much to the business.
@@ -228,14 +229,33 @@ FROM
 
 19. After running the query, it created a new table called inventory_analysis_results. It has all of our clean data with all of the necessary labels ready for analysis. Now we need to export it and upload it onto Tableau. 
    a) To do this, we need to allow our project to have access to the BigQuery API.
+
    b) Then we need to open Google Sheets and click on Data, Data Connectors, and then connect to BigQuery.
+   
    c) Select your project name (in my case I named it ABC Inventory Analysis but name it however you want), then click on your inventory_analysis_results table.
+   
    d) Finally click on file, download, and then click on Comma Separated Values (.csv). This will allow you to store it onto your downloads folder and open it in Tableau.
+   
 
 # Analyze & Share Data
 
-21. 
+21. I will be using Tableau Public but you can also use Microsoft Power BI for your data visualizations. 
+First thing you need to do is open Tableau, go to the left corner where it says “Connect”, click on the Text file option and click on your .csv file you downloaded earlier.
 
+22. The next step is to create the executive ABC Pareto chart. We want to show our executives that a tiny fraction of Olist items generate the majority of the value using visuals.
+      a) First we want to drag the Product ID to the Columns section.
+      b) Then we want SUM(Total Revenue) to go onto the Rows section.
+      c) Then put ABC class in the Color Mark
+      d) Then sort your columns by descending orde
+      e) Then drag a second copy of the total revenue onto the Rows section
+      f) Right click the pill, hover to Quick Table Calculation and select Running Total
+      g) Right click it again, click on Edit Table Calculation, check the box that says “Add Secondary Calculation”, and then set the secondary calculation type to percent of total.
+      h) Right click it once again and click on “Dual Axis” which will merge the charts but also turn everything into circles or lines.
+      i) To fix this, we click on the first SUM(Total Revenue) card and change the drop-down menu from automatic to Bar.
+      j) Click on the SUM(Total Revenue) (2) card and change the drop-down menu to Line. (ensure the ABC class is removed from the color card in this section)
+      k) Then add the ABC Class card into the bar mark section
+      l) Your chart should look something like this:
+   ![ABC Pareto Chart](Visuals/ABC%20Pareto%20Chart%20.png) 
 
 
 
