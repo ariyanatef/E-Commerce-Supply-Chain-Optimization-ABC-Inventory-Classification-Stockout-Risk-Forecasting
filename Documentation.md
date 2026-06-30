@@ -228,6 +228,7 @@ FROM
 ```
 
 19. After running the query, it created a new table called inventory_analysis_results. It has all of our clean data with all of the necessary labels ready for analysis. Now we need to export it and upload it onto Tableau. 
+
    a) To do this, we need to allow our project to have access to the BigQuery API.
 
    b) Then we need to open Google Sheets and click on Data, Data Connectors, and then connect to BigQuery.
@@ -243,20 +244,89 @@ FROM
 First thing you need to do is open Tableau, go to the left corner where it says “Connect”, click on the Text file option and click on your .csv file you downloaded earlier.
 
 22. The next step is to create the executive ABC Pareto chart. We want to show our executives that a tiny fraction of Olist items generate the majority of the value using visuals.
+
       a) First we want to drag the Product ID to the Columns section.
+    
       b) Then we want SUM(Total Revenue) to go onto the Rows section.
+    
       c) Then put ABC class in the Color Mark
-      d) Then sort your columns by descending orde
+    
+      d) Then sort your columns by descending order
       e) Then drag a second copy of the total revenue onto the Rows section
+    
       f) Right click the pill, hover to Quick Table Calculation and select Running Total
+    
       g) Right click it again, click on Edit Table Calculation, check the box that says “Add Secondary Calculation”, and then set the secondary calculation type to percent of total.
+    
       h) Right click it once again and click on “Dual Axis” which will merge the charts but also turn everything into circles or lines.
+    
       i) To fix this, we click on the first SUM(Total Revenue) card and change the drop-down menu from automatic to Bar.
+    
       j) Click on the SUM(Total Revenue) (2) card and change the drop-down menu to Line. (ensure the ABC class is removed from the color card in this section)
+    
       k) Then add the ABC Class card into the bar mark section
+    
       l) Your chart should look something like this:
    ![ABC Pareto Chart](Visuals/ABC%20Pareto%20Chart.png)
 
+The line shows us the percentage of the total products and how much of the revenue they are contributing to. We see that the line that is about less than 30% of the total products contribute to the most total revenue for the company showing that they are worth keeping at all costs.
 
+23. Now we want to create a 2D matrix intersection to match the financial priority against the operational vulnerability. In simple terms, it will allow us to determine which items are worth the risk of keeping and which items aren’t.
+
+      a) Create a new Sheet and drag ABC Class to the columns section
+    
+      b) Then put the Stockout Risk Level onto the rows section
+    
+      c) Manually drag and click the risk section so they read downward (Out of Stock, Critical Risk, Medium Risk, & Healthy)
+
+      d) Drag Product ID onto the Text card, click the drop-down pill and change the aggregation to Count(Distinct)
+
+      e) Hold CTRL (or Cmd for Mac), drag the same CNT(Product ID) pill from text onto the color card and change the mark type to square to create a highlight heat map.
+    
+      f) Your chart should look something like this:
+    ![Operational Stockout Risk Matrix](Visuals/Operational%20Stockout%20Risk%20Matrix.png)
+
+    Classes A, B, and C show us how much money these items make us. A items are our absolute best seller, B items are your steady sellers that don’t cause any significant impact but are still important. The C items represent slow movers that barely make any money. The dark shades of blue represent the density of the unique products in each box. Having 116 items in Class A (our most valuable items) that are out would make us lose massive amounts of money every minute. Having 2 items that are in critical risk means we need to pay attention to those before they also become out of stock and medium risk & healthy show that they don’t need much attention but should definitely be kept in check.
+
+
+24.  Now we want to create a high priority drill-down table. This will help the managers take the necessary action needed to ensure revenue is being maintained.
+      a) Create a new sheet and drag Product ID, Category, SUM(Days of Supply), & SUM(Current Inventory) into the Rows column. Change the SUM(Days of Supply) & SUM(Current Inventory) from Continuous to Discrete by right clicking.
+
+     
+      b) Then put SUM(Total Revenue) & SUM(Avg Daily Sales) into the Text Mark
+
+
+      c) Put ABC Class and Stockout Risk Levels into the Filters box and click on all the checkmarks.
+
+
+      d) Your table should look something like this:
+     ![High-Priority Drill Down Table](Visuals/High-Priority%20Drill%20Down%20Table.png)
+
+What this table will allow us to do is determine what items are out of stock or close to being out of stock. The Days of Supply tells us how many days these items have been in stock and Current Inventory allows us to clearly determine how much of each item there is. We can use the ABC class filter to allow us to find out which of our Class A (best seller items) are out of stock or close to running out so we can take the necessary steps to ensure that we do not lose revenue.
+
+25. Now we want to put them all in a dashboard.
+ 
+      a) Create a new dashboard
+    
+      b) Put the ABC Pareto Chart onto the dashboard first
+
+      c) Then put the Operational Risk Stockout Matrix on the bottom left
+
+      d) And finally put the Inventory Health Action Ledger to the bottom right
+
+      e) It should look something like this:
+![Dashboard](Visuals/Dashboard.png)
+
+# Summary
+What we see here is that we have over 100 Class A products which generate about 80% of our revenue. If they are not restocked, they could cause immense revenue and profit loss in the company. We also see that using these tables, a lot of the products (Class C) take up a lot of space however they barely generate any revenue and even cause significant losses to the company. We also determined that due to the large amount of products the company has, creating a drop-down table and a 2D Matrix allows us to quickly restock our Class A products and ensure our Class B (the steady revenue earners) are also in stock. Overall, having tools like these help us quickly determine what products are running out, which ones are out of stock, which ones generate the most revenue, and which ones we really don’t need.
+
+# Act
+For the high priority items, we should put the most priority in Class A. We should immediately purchase orders for the 116 Out of Stock and 2 Critical Risk items. This is because they produce the most revenue and profit for the company.
+
+
+For Class C items, the items that are out of stock or at Critical Risk can have their restocking cycles either delayed or frozen because these items do not generate enough revenue to keep them stocked. We can transition those resources to our more valuable items like the Class A items.
+
+
+One other step we can do is change the SQL queries above to make them into a daily automated script instead of being in a static environment. We could link BigQuery to Tableau in order to automate this process or even switch to Python in the future to simplify the automation. It would update every morning which would give the operations team an accurate, real-time checklist of every item in the company.
 
    
