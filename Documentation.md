@@ -179,11 +179,11 @@ abc_shares AS (
 
 16. Now we want to implement the Standard 80/15/5 pareto bands onto our inventory analysis. The standard 80/15/5 pareto bands are a three-tier system that will allow us to determine who products or demographics are the most valuable. It will help us focus time and money and put those resources to where it is most valuable.
 
-   a) To break it down, we start with the 80% Band (The Vital Few) which makes up 80% of the total value. These items generate the most revenue caused by a few of your products.
+      a) To break it down, we start with the 80% Band (The Vital Few) which makes up 80% of the total value. These items generate the most revenue caused by a few of your products.
    
-   b) The 15% band (The Moderates) are your middle ground resources. These things aren’t anything extraordinary but they provide steady, reliable value to your business. They are mostly worth keeping but won’t contribute to huge results.
+      b) The 15% band (The Moderates) are your middle ground resources. These things aren’t anything extraordinary but they provide steady, reliable value to your business. They are mostly worth keeping but won’t contribute to huge results.
 
-   c) Lastly we have the 5% band. These items do not provide any value to your business and are just wasting resources. These can be items, tasks, or even target audiences that don’t contribute much to the business.
+      c) Lastly we have the 5% band. These items do not provide any value to your business and are just wasting resources. These can be items, tasks, or even target audiences that don’t contribute much to the business.
 
 17. In order to use the 80/15/5 pareto bands in our inventory analysis, we will use this query:
 ```sql
@@ -229,13 +229,13 @@ FROM
 
 19. After running the query, it created a new table called inventory_analysis_results. It has all of our clean data with all of the necessary labels ready for analysis. Now we need to export it and upload it onto Tableau. 
 
-   a) To do this, we need to allow our project to have access to the BigQuery API.
+      a) To do this, we need to allow our project to have access to the BigQuery API.
 
-   b) Then we need to open Google Sheets and click on Data, Data Connectors, and then connect to BigQuery.
+      b) Then we need to open Google Sheets and click on Data, Data Connectors, and then connect to BigQuery.
    
-   c) Select your project name (in my case I named it ABC Inventory Analysis but name it however you want), then click on your inventory_analysis_results table.
+      c) Select your project name (in my case I named it ABC Inventory Analysis but name it however you want), then click on your inventory_analysis_results table.
    
-   d) Finally click on file, download, and then click on Comma Separated Values (.csv). This will allow you to store it onto your downloads folder and open it in Tableau.
+      d) Finally click on file, download, and then click on Comma Separated Values (.csv). This will allow you to store it onto your downloads folder and open it in Tableau.
    
 
 # Analyze & Share Data
