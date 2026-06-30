@@ -24,4 +24,4 @@ Guiding Questions:
 1. Go to Kaggle.com and search up "Brazilian E-Commerce Public Dataset by Olist".
 2. Download the zipfile and extract it (I extracted it to my desktop)
 3. We will be taking a look at three essential files:
-   
+![Which files we are looking at](Visuals/Which%20files%20we%20are%20looking%20at.png)   
