@@ -25,3 +25,21 @@ Guiding Questions:
 2. Download the zipfile and extract it (I extracted it to my desktop)
 3. We will be taking a look at three essential files:
 ![Which files we are looking at](Visuals/Which%20files%20we%20are%20looking%20at.png)   
+
+4. I will be using BigQuery Sandbox to perform these SQL queries but you can use whatever works best for you. Just keep in mind that the queries might vary slightly depending on what you use.
+5. After going to BigQuery Sandbox, I am going to create a project and name it “ABC Inventory Analysis”
+6. After creating the project, we have to upload the datasets.
+   We have to first create a dataset and to do so, we click on add data.
+   Then we click on the local file and then the local file again.
+   Click on browse and find where your files are downloaded (mine are on the desktop).
+
+7. We want to upload the three csv files that have been marked in step 3.
+   I uploaded olist_order_items_dataset.csv first.
+   Now we have to create a dataset which I will name “olist_inventory” but name it how you see fit.
+
+8. Now name the table.
+   I will name it the name of the file without the csv (ex: olist_order_items_dataset).
+   Click on autodetect for schema.
+   Repeat steps 6-8 for the other files, ensuring you select the name of the dataset you created in step 7.
+
+
