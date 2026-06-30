@@ -255,7 +255,7 @@ First thing you need to do is open Tableau, go to the left corner where it says 
       j) Click on the SUM(Total Revenue) (2) card and change the drop-down menu to Line. (ensure the ABC class is removed from the color card in this section)
       k) Then add the ABC Class card into the bar mark section
       l) Your chart should look something like this:
-   ![ABC Pareto Chart](Visuals/ABC%20Pareto%20Chart%20.png) 
+   ![ABC Pareto Chart](Visuals/ABC%20Pareto%20Chart.png)
 
 
 
