@@ -4,3 +4,4 @@ The project can be used in the real-world due to using real data. It focuses on 
 and how we can quickly identify products that add lower value so resources can be allocated more efficiently.
 
 I used BigQuery for the SQL functions and Tableau for the data visualizations so if you end up using a different platform, these steps are going to be different for you.
+Finally, the steps to replicate this project is in the Documentation.md file.
