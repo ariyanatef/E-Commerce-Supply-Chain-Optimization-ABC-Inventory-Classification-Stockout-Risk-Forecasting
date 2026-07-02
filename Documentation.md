@@ -102,6 +102,7 @@ We see that there are 1,603 missing categories in the results. We will filter th
 
 
 *keep in mind all of this will go on one query window, I am breaking it down for learning purposes
+
 12. Now that we have our preliminary checks out of the way, we will conduct our actual analysis using SQL. 
 First we want to ensure we have a new table that combines all of our data tables alongside having completely unique values. To do this we will use this query:
 ```sql
